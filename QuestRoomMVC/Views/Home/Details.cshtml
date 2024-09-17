@@ -1,0 +1,25 @@
+﻿@model QuestRoomMVC.Models.QuestRoom
+
+<h2>@Model.Name</h2>
+
+<div>
+    <h4>Description</h4>
+    <p>@Model.Description</p>
+    <h4>Duration</h4>
+    <p>@Model.Duration minutes</p>
+    <h4>Players</h4>
+    <p>Min: @Model.MinPlayers, Max: @Model.MaxPlayers</p>
+    <h4>Age Requirement</h4>
+    <p>Min Age: @Model.MinAge</p>
+    <h4>Contact</h4>
+    <p>Address: @Model.Address</p>
+    <p>Phone: @Model.Phone</p>
+    <p>Email: @Model.Email</p>
+    <h4>Company</h4>
+    <p>@Model.Company</p>
+    <h4>Ratings</h4>
+    <p>Rating: @Model.Rating</p>
+    <p>Fear Level: @Model.FearLevel</p>
+    <p>Difficulty Level: @Model.DifficultyLevel</p>
+    <img src="@Model.Logo" alt="Logo" />
+</div>

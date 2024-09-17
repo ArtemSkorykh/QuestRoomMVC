@@ -1,0 +1,81 @@
+﻿@model QuestRoomMVC.Models.QuestRoom
+
+<h2>Create New Quest Room</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Duration" class="control-label"></label>
+        <input asp-for="Duration" type="number" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MinPlayers" class="control-label"></label>
+        <input asp-for="MinPlayers" type="number" class="form-control" />
+        <span asp-validation-for="MinPlayers" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaxPlayers" class="control-label"></label>
+        <input asp-for="MaxPlayers" type="number" class="form-control" />
+        <span asp-validation-for="MaxPlayers" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MinAge" class="control-label"></label>
+        <input asp-for="MinAge" type="number" class="form-control" />
+        <span asp-validation-for="MinAge" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Address" class="control-label"></label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone" class="control-label"></label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Company" class="control-label"></label>
+        <input asp-for="Company" class="form-control" />
+        <span asp-validation-for="Company" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rating" class="control-label"></label>
+        <input asp-for="Rating" type="number" class="form-control" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FearLevel" class="control-label"></label>
+        <input asp-for="FearLevel" type="number" class="form-control" />
+        <span asp-validation-for="FearLevel" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DifficultyLevel" class="control-label"></label>
+        <input asp-for="DifficultyLevel" type="number" class="form-control" />
+        <span asp-validation-for="DifficultyLevel" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Logo" class="control-label"></label>
+        <input asp-for="Logo" type="file" class="form-control" />
+        <span asp-validation-for="Logo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

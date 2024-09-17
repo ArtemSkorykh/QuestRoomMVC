@@ -1,0 +1,35 @@
+﻿@model IEnumerable<QuestRoomMVC.Models.QuestRoom>
+
+<h2>Manage Quest Rooms</h2>
+
+<a asp-controller="Admin" asp-action="Create" class="btn btn-primary">Create New Room</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th>Min Players</th>
+            <th>Max Players</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Duration minutes</td>
+                <td>@item.MinPlayers</td>
+                <td>@item.MaxPlayers</td>
+                <td>
+                    <a asp-controller="Admin" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-controller="Admin" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

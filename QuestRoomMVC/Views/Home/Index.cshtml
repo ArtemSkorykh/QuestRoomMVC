@@ -1,0 +1,98 @@
+﻿@model IEnumerable<QuestRoomMVC.Models.QuestRoom>
+
+@{
+    var query = ViewContext.HttpContext.Request.Query;
+
+    var searchString = query["searchString"].ToString();
+
+    var difficultyLevel = query["difficultyLevel"].ToString();
+
+    var minPlayers = query["minPlayers"].ToString();
+
+    var fearLevel = query["fearLevel"].ToString();
+}
+
+<h2>Quest Rooms</h2>
+
+<form asp-controller="Home" asp-action="Index" method="get">
+    <div class="form-group">
+        <label for="searchString">Search:</label>
+        <input type="text" name="searchString" id="searchString" value="@searchString" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="difficultyLevel">Difficulty Level:</label>
+        <select name="difficultyLevel" id="difficultyLevel" class="form-control">
+            <option value="">Any</option>
+            @for (int i = 1; i <= 5; i++)
+            {
+
+                if (difficultyLevel == i.ToString())
+
+                {
+                    <option value="@i" selected="selected">@i</option>
+                }
+
+                else
+
+                {
+                    <option value="@i">@i</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="minPlayers">Minimum Players:</label>
+        <input type="number" name="minPlayers" id="minPlayers" value="@minPlayers" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="fearLevel">Fear Level:</label>
+        <select name="fearLevel" id="fearLevel" class="form-control">
+            <option value="">Any</option>
+            @for (int i = 1; i <= 5; i++)
+            {
+
+                if (fearLevel == i.ToString())
+
+                {
+                    <option value="@i" selected="selected">@i</option>
+                }
+
+                else
+
+                {
+                    <option value="@i">@i</option>
+                }
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th>Min Players</th>
+            <th>Max Players</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Duration minutes</td>
+                <td>@item.MinPlayers</td>
+                <td>@item.MaxPlayers</td>
+                <td>
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
